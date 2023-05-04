@@ -9,8 +9,17 @@
     <script src="https://unpkg.com/vue@3"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello world</h1>
+    <div id='content' class="container">
+        <h1>{{pageTitle}}</h1>
     </div>
+    <script>
+        Vue.createApp({
+            data(){
+                return{
+                    pageTitle: 'Hello Vue'
+                };
+            }
+        }).mount('#content');
+    </script>
 </body>
 </html>
