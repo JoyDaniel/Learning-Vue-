@@ -27,11 +27,9 @@
             </form>
         </div>
     </nav>  <!-- End of Navigation Bar -->
-    <div id='content' class="container">
-        <h1>{{pages[activepage].pageTitle}}</h1>
-    </div>
-    <script>
-        Vue.createApp({
+   <page-viewer :page="pages[activepage]"></page-viewer>
+   <script>
+        let app = Vue.createApp({
             data(){
                 return{
                     activepage:0,
@@ -61,7 +59,15 @@
                     this.theme = theme;
                 }
             }
-        }).mount('body');
+        })
+        app.component('page-viewer', {
+            props: ['page'],
+            template: ` <div id='content' class="container">
+                            <h1>{{page.pageTitle}}</h1>
+                        </div>
+    `
+        })
+        app.mount('body')
     </script>
 </body>
 </html>
