@@ -15,18 +15,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li v-for="(page, index) in pages" class="nav-item" :key="index">
                     <a class="nav-link" aria-current="page" :href="page.link.url"
-                    :title="`This link goes to ${page.link.text} page`">{{page.link.text}}</a>
+                    :title="`This link goes to ${page.link.text} page`" @click.prevent="activepage=index">{{page.link.text}}</a>
                 </li>
             </ul>
         </div>
     </nav>  <!-- End of Navigation Bar -->
     <div id='content' class="container">
-        <h1>{{pageTitle}}</h1>
+        <h1>{{pages[activepage].pageTitle}}</h1>
     </div>
     <script>
         Vue.createApp({
             data(){
                 return{
+                    activepage:0,
                     pages:[    
                         {
                             link: {text:'Home', url:'Home.html'}, 
