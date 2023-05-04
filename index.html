@@ -9,15 +9,21 @@
     <script src="https://unpkg.com/vue@3"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg "
+    :class="{'navbar-light bg-light':!useDarkNavbar, 'navbar-dark bg-dark':useDarkNavbar}">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">My Vue</a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li v-for="(page, index) in pages" class="nav-item" :key="index">
-                    <a class="nav-link" aria-current="page" :href="page.link.url"
+                    <a class="nav-link" :class="{active: activepage==index}" aria-current="page" :href="page.link.url"
                     :title="`This link goes to ${page.link.text} page`" @click.prevent="activepage=index">{{page.link.text}}</a>
                 </li>
             </ul>
+            <form class="d-flex">
+                <button
+                    class="btn btn-primary" @click.prevent="useDarkNavbar = !useDarkNavbar">ToggleNavBar
+                </button>
+            </form>
         </div>
     </nav>  <!-- End of Navigation Bar -->
     <div id='content' class="container">
@@ -28,6 +34,7 @@
             data(){
                 return{
                     activepage:0,
+                    useDarkNavbar:true,
                     pages:[    
                         {
                             link: {text:'Home', url:'Home.html'}, 
