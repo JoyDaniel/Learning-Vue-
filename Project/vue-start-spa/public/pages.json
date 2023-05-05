@@ -1,13 +1,16 @@
 [  
 {
     "link": {"text":"Home", "url":"Home.html"}, 
-    "pageTitle": "Home Page"
+    "pageTitle": "Home Page",
+    "published": true
 },
 {
     "link": {"text":"About", "url":"About.html"}, 
-    "pageTitle": "About page"
+    "pageTitle": "About page",
+    "published": true
 },
 {
     "link": {"text":"Contact", "url":"Contact.html"}, 
-    "pageTitle": "Contact page"
+    "pageTitle": "Contact page",
+    "published": false
 }]
