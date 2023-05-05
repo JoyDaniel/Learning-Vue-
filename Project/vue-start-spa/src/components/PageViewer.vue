@@ -7,11 +7,20 @@
 
 <script>
 export default{
-    props: ['page']
+    props: {
+        page:{
+            type: Object,
+            default(rawProps){
+                return{
+                    pageTitle:''
+                }
+            }
+        }
+    }
 }
 </script>
 <style scoped>
 .emphasize{
-    color: blue !important;    
+    color: rgb(255, 94, 0) !important;    
 }
 </style>

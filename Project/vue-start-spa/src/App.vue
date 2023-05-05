@@ -3,8 +3,15 @@
         :pages="pages"
         :active-page="activepage"
         :nav-link-click="(index) => activepage=index"
-   ></navbar>    
-   <page-viewer :page="pages[activepage]"></page-viewer>
+   ></navbar>
+   
+   <div v-show="false">
+        hide this...
+   </div>
+   
+   <page-viewer 
+   v-if="pages.length > 0"
+   :page="pages[activepage]"></page-viewer>
 </template>
 
 <script>
@@ -18,24 +25,23 @@ export default {
         PageViewer, 
         Navbar
     },
+    created(){
+        this.getPages();
+    },
     data(){
         return {
             activepage:0,
-            pages:[    
-                {
-                    link: {text:'Home', url:'Home.html'}, 
-                    pageTitle: 'Home Page'
-                },
-                {
-                    link: {text:'About', url:'About.html'}, 
-                    pageTitle: 'About page'
-                },
-                {
-                    link: {text:'Contact', url:'Contact.html'}, 
-                    pageTitle: 'Contact page'
-                }
-            ]
+            pages:[]
         };
+    },
+    methods:{
+        async getPages(){
+            let res =  await fetch('pages.json');
+            let data= await res.json();
+
+            this.pages = data;
+
+        }
     }
 }
 </script>

@@ -1,0 +1,13 @@
+[  
+{
+    "link": {"text":"Home", "url":"Home.html"}, 
+    "pageTitle": "Home Page"
+},
+{
+    "link": {"text":"About", "url":"About.html"}, 
+    "pageTitle": "About page"
+},
+{
+    "link": {"text":"Contact", "url":"Contact.html"}, 
+    "pageTitle": "Contact page"
+}]
