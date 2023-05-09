@@ -14,7 +14,7 @@
    :page="pages[activepage]"></page-viewer>
 
    <create-page
-        :page-created="pageCreated"
+        @page-created="pageCreated"
    ></create-page>
 </template>
 
@@ -43,9 +43,7 @@ export default {
         async getPages(){
             let res =  await fetch('pages.json');
             let data= await res.json();
-
             this.pages = data;
-
         },
         pageCreated(pageObj){
            this.pages.push(pageObj);
